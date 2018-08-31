@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 
 @Component({
@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   @Input()
   public product: IProduct;
@@ -14,10 +14,8 @@ export class CardComponent implements OnInit {
   @Input()
   public isOdd: boolean;
 
-  constructor() {
-  }
-
-  ngOnInit() {
+  public dolarPrice(price: number): number {
+    return price * 28;
   }
 
 }
