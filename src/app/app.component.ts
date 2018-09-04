@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
-import {ProductsService} from './common/services/products.service';
+import {Store} from '@ngrx/store';
+import {GetProductsPending} from './store/actions/products.action';
 
 @Component({
   selector: 'course-root',
@@ -14,29 +15,18 @@ export class CourseComponent implements OnInit {
   public logo = 'assets/img/logo.png';
   public placeholder = 'Более 1000 товаров';
   public searchText;
-  public loading = false;
   public products$: Observable<IProduct[]>;
 
   public constructor(
     private _sanitazer: DomSanitizer,
-    private _productsService: ProductsService,
+    private _store: Store<any>
   ) {
-
-    setTimeout(() => {
-      this.loading = true;
-    }, 5000);
-    // products$.subscribe((products: IProduct[]) => {
-    //   this.productsData = products;
-    // });
   }
 
   public ngOnInit(): void {
-    this.products$ = this._productsService.products$();
+    this._store.dispatch(new GetProductsPending());
+    this.products$ = this._store.select('products');
   }
 
-
-  // public span(): SafeHtml {
-  //   return this._sanitazer.bypassSecurityTrustHtml(`<span style="color:red">Hi ${this.searchText || ''} </span>`);
-  // }
 
 }
