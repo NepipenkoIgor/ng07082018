@@ -1,7 +1,7 @@
 <div class="col-lg-4" [ngClass]="{background: isOdd}">
   <div class="catalogItem">
-    <div class="catalogItem__img">
-      <img
+    <div class="catalogItem__img" >
+      <img [routerLink]="['/products',product._id]"
         [src]="product.src"
         [alt]="product.title"
 
@@ -12,8 +12,8 @@
     <div class="catalogItem__brand">Бренд: <strong>{{product.author | uppercase}}</strong></div>
     <div class="catalogItem__prices" [courseTooltip]="dolarPrice(product.price) |  number:'1.0-0'" #t="tooltip">
       <!--<span class="tooltiptext open">Эквив. ~ 150$</span>-->
-      Цена: <strong   (mouseenter)="t.show()"
-                      (mouseleave)="t.hide()">{{product.price |  number:'1.0-0'  }}</strong></div>
+      Цена: <strong (mouseenter)="t.show()"
+                    (mouseleave)="t.hide()">{{product.price | number:'1.0-0' }}</strong></div>
     <button class="catalogItem__btn" (click)="addToCart(product)">Добавить</button>
   </div>
 </div>

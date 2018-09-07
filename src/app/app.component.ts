@@ -15,7 +15,6 @@ export class CourseComponent implements OnInit {
   public logo = 'assets/img/logo.png';
   public placeholder = 'Более 1000 товаров';
   public searchText;
-  public products$: Observable<IProduct[]>;
 
   public constructor(
     private _sanitazer: DomSanitizer,
@@ -25,7 +24,7 @@ export class CourseComponent implements OnInit {
 
   public ngOnInit(): void {
     this._store.dispatch(new GetProductsPending());
-    this.products$ = this._store.select('products');
+
   }
 
 

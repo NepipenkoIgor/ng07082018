@@ -1,0 +1,14 @@
+<section class="main">
+  <div class="container">
+    <div class="row" *ngIf="products$ | async as products; else loadRef">
+      <course-card *ngFor="let product of products | productFilter:searchText; let isOdd = odd "
+                   [product]="product" [isOdd]="isOdd"
+      ></course-card>
+    </div>
+    <ng-template #loadRef>
+      <div>
+        ...loading
+      </div>
+    </ng-template>
+  </div>
+</section>

@@ -9,23 +9,6 @@
     </div>
   </div>
 </course-header>
+<router-outlet></router-outlet>
 
-<section class="main">
-
-  <div class="container">
-    <div class="row" *ngIf="products$ | async as products; else loadRef">
-      <!--<div *ngFor="let key of products[0] | keyvalue ">-->
-        <!--<div>{{key | json}}</div>-->
-      <!--</div>-->
-      <course-card *ngFor="let product of products | productFilter:searchText; let isOdd = odd "
-                   [product]="product" [isOdd]="isOdd"
-      ></course-card>
-    </div>
-    <ng-template #loadRef>
-      <div>
-        ...loading
-      </div>
-    </ng-template>
-  </div>
-</section>
 <course-footer></course-footer>

@@ -1,4 +1,5 @@
 import {AfterContentInit, Component, ContentChild, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'course-header',
@@ -19,6 +20,14 @@ export class HeaderComponent implements OnInit, AfterContentInit {
   @ContentChild('logo')
   public myLogo;
 
+
+  public constructor(
+    private _router: Router
+  ) {
+
+  }
+
+
   public ngOnInit(): void {
     console.log(`in ngOnInit ${this.placeholder}`);
   }
@@ -29,6 +38,10 @@ export class HeaderComponent implements OnInit, AfterContentInit {
 
   public ngAfterContentInit(): void {
     console.log(this.myLogo);
+  }
+
+  public goToPage(): void {
+    this._router.navigate(['signup']);
   }
 
 }
