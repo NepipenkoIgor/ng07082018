@@ -18,12 +18,13 @@ import {reducers} from './store';
 import {CartComponent} from './header/cart/cart.component';
 import {ProductComponent} from './header/cart/product/product.component';
 import {ProductsComponent} from './content/products/products.component';
-import {SigninComponent} from './content/signin/signin.component';
 import {SignupComponent} from './content/signup/signup.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
-import { OneProductComponent } from './content/products/one-product/one-product.component';
+import {OneProductComponent} from './content/products/one-product/one-product.component';
 import {OneProductResolverService} from './content/products/one-product/one-product-resolver.service';
+import {CustomPreloadService} from './common/services/custom-preload.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 console.log(BASE_URL);
 
@@ -38,21 +39,23 @@ console.log(BASE_URL);
     CartComponent,
     ProductComponent,
     ProductsComponent,
-    SigninComponent,
     SignupComponent,
     OneProductComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductsEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadService})
   ],
   providers: [
     {provide: BASE_URL, useValue: environment.baseUrl},
-    OneProductResolverService
+    OneProductResolverService,
+    CustomPreloadService
     // {provide: 'BASE_URL', useValue: 'localhost:5555', multi: true},
   ],
   bootstrap: [CourseComponent]

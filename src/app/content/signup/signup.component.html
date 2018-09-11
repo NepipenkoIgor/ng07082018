@@ -4,30 +4,48 @@
       <div class="col-lg-12">
         <div class="registration-wrapper">
           <h1>Регистрация</h1>
-          <form action="">
-            <label class="input-wrapper no-valid">
+          <form [formGroup]="signUpForm" (submit)="sendForm(signUpForm.value)">
+            <label class="input-wrapper "
+                   [ngClass]="{'no-valid':signUpForm.get('firstName').invalid && signUpForm.get('firstName').touched}">
               <span>Ваше имя</span>
-              <input type="text">
+              <input type="text" [formControl]="signUpForm.get('firstName')">
               <div class="valid-message">Введите корректное имя</div>
             </label>
             <label class="input-wrapper">
               <span>Ваша фамилия</span>
-              <input type="text">
+              <input type="text" formControlName="lastName">
             </label>
             <label class="input-wrapper">
               <span>Ваш e-mail</span>
-              <input type="email">
+              <input type="email" formControlName="email">
             </label>
             <label class="input-wrapper">
               <span>Пароль</span>
-              <input type="password">
+              <input type="password" formControlName="password">
             </label>
             <div class="btn-wrapper">
-              <button>Зарегистрироваться</button>
+              <button type="submit" [disabled]="!signUpForm.valid">Зарегистрироваться</button>
             </div>
           </form>
+          <pre>
+           {{signUpForm.get('firstName').errors | json  }}
+            {{signUpForm.value | json}}
+          </pre>
         </div>
       </div>
     </div>
   </div>
+
+  <div [formGroup]="formWithEmail">
+    <ul formGroupName="emails">
+      <li *ngFor="let e of formWithEmail.get('emails').controls; index as i">
+        <input type="text" formControlName={{i}}>
+        <span (click)=removeEmail(i)>X</span>
+        <span> </span>
+      </li>
+      <button (click)="addEmail()"> Add Email</button>
+    </ul>
+  </div>
+  {{formWithEmail.value | json}}
+
 </section>
