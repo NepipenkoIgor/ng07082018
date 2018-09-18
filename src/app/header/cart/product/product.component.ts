@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ICartProduct} from '../../../store/reducers/cart.reducer';
 
 @Component({
   selector: 'course-product',
@@ -25,7 +26,7 @@ export class ProductComponent {
 
   public decrementProduct(product: ICartProduct): void {
     if (product.count === 1) {
-      this.remove.emit(product);
+      this.removeProduct(product);
       return;
     }
     this.decrement.emit(product);

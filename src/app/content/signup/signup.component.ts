@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {debounceTime, delay} from 'rxjs/operators';
@@ -6,7 +6,7 @@ import {debounceTime, delay} from 'rxjs/operators';
 @Component({
   selector: 'course-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
 
@@ -18,7 +18,8 @@ export class SignupComponent implements OnInit {
   });
 
   public constructor(
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _zone: NgZone
   ) {
   }
 
@@ -30,6 +31,7 @@ export class SignupComponent implements OnInit {
       lastName: [
         '',
         [Validators.required, Validators.minLength(4)]],
+      male: [true],
       email: [''],
       password: ['']
 

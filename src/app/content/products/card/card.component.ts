@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AddProductToCart} from '../../../store/actions/cart.action';
+import {IProduct} from '../../../store/reducers/products.reducer';
 
 
 @Component({

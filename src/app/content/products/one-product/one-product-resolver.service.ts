@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {BASE_URL} from '../../../constants';
 import {catchError, map} from 'rxjs/operators';
+import {IProduct} from '../../../store/reducers/products.reducer';
 
 @Injectable()
 export class OneProductResolverService implements Resolve<IProduct> {

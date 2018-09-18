@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
+import {IProduct} from '../../store/reducers/products.reducer';
 
 @Component({
   selector: 'course-products',

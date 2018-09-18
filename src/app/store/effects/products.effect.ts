@@ -6,6 +6,7 @@ import {Observable, of} from 'rxjs';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {GET_PRODUCTS_PENDING, GetProductsError, GetProductsSuccess} from '../actions/products.action';
 import {BASE_URL} from '../../constants';
+import {IProduct} from '../reducers/products.reducer';
 
 @Injectable()
 export class ProductsEffects {

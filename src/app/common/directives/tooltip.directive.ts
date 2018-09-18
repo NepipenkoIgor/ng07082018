@@ -37,7 +37,8 @@ export class TooltipDirective implements OnInit {
     // this._tooltipContext = this._renderer.createElement('span');
     console.log(this._elementRef.nativeElement);
     this._tooltipContext.className = 'tooltiptext';
-    this._elementRef.nativeElement.appendChild(this._tooltipContext);
+    this._renderer.appendChild(this._elementRef.nativeElement, this._tooltipContext);
+    // this._elementRef.nativeElement.appendChild(this._tooltipContext);
   }
 
   public hide(): void {

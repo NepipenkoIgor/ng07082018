@@ -1,7 +1,11 @@
 import {ADD_PRODUCT_TO_CART, DECREMENT_PRODUCT_IN_CART, INCREMENT_PRODUCT_IN_CART, REMOVE_PRODUCT_FROM_CART} from '../actions/cart.action';
 import {createEntityAdapter, EntityAdapter} from '@ngrx/entity';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {IProduct} from './products.reducer';
 
+export interface ICartProduct extends IProduct {
+  count: number;
+}
 
 export const adapter: EntityAdapter<ICartProduct> = createEntityAdapter<ICartProduct>(
   {

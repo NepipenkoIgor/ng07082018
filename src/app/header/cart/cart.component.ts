@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {DecrementProductInCart, IncrementProductInCart, RemoveProductFromCart} from '../../store/actions/cart.action';
-import {selectAll, totalPrice, trueProductsCount} from '../../store/reducers/cart.reducer';
+import {ICartProduct, selectAll, totalPrice, trueProductsCount} from '../../store/reducers/cart.reducer';
+import {IProduct} from '../../store/reducers/products.reducer';
 
 @Component({
   selector: 'course-cart',

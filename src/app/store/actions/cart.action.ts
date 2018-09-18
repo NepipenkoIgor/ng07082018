@@ -1,3 +1,6 @@
+import {IProduct} from '../reducers/products.reducer';
+import {ICartProduct} from '../reducers/cart.reducer';
+
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 export const INCREMENT_PRODUCT_IN_CART = 'INCREMENT_PRODUCT_IN_CART';

@@ -25,6 +25,7 @@ import {OneProductComponent} from './content/products/one-product/one-product.co
 import {OneProductResolverService} from './content/products/one-product/one-product-resolver.service';
 import {CustomPreloadService} from './common/services/custom-preload.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SwitcherComponent } from './content/signup/switcher/switcher.component';
 
 console.log(BASE_URL);
 
@@ -41,6 +42,7 @@ console.log(BASE_URL);
     ProductsComponent,
     SignupComponent,
     OneProductComponent,
+    SwitcherComponent,
   ],
   imports: [
     BrowserModule,

@@ -53,19 +53,22 @@ export class HeaderComponent implements OnChanges, OnInit, DoCheck, AfterContent
   }
 
   public ngDoCheck() {
-  console.log('ngDoCheck');
+    console.log('ngDoCheck');
   }
 
-  public ngAfterContentInit(){
+  public ngAfterContentInit() {
     console.log('ngAfterContentInit');
   }
-  public ngAfterViewInit(){
+
+  public ngAfterViewInit() {
     console.log('ngAfterViewInit');
   }
-  public ngAfterViewChecked(){
+
+  public ngAfterViewChecked() {
     console.log('ngAfterViewChecked');
   }
-  public ngAfterContentChecked(){
+
+  public ngAfterContentChecked() {
     console.log('ngAfterContentChecked');
   }
 

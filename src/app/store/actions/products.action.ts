@@ -1,3 +1,5 @@
+import {IProduct} from '../reducers/products.reducer';
+
 export const GET_PRODUCTS_PENDING = 'GET_PRODUCTS_PENDING';
 export const GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS';
 export const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR';
